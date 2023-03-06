@@ -11,7 +11,7 @@
 # Keeps a list of installed packages in a Gist at your GitHub account.
 
 pacmanity_update(){
-    if (pacman -Qqn; echo; pacman -Qqm) | gist -u "$GIST_ID" -f $HOSTNAME.pacmanity; then
+    if (pacman -Qqne; echo; pacman -Qqme) | gist -u "$GIST_ID" -f $HOSTNAME.pacmanity; then
         (pacman -Qn; echo; pacman -Qm) | gist -u "$GIST_ID" -f $HOSTNAME.version.pacmanity
         echo "Pacmanity: Gist successfully updated."
     else
